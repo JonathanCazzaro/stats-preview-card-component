@@ -16,10 +16,11 @@
 <body>
   <div class="container">
     <header class="header">
-      <picture class="header__picture">
-        <source srcset="images/image-header-mobile.jpg" media="(max-width: 375px)">
-        <img src="images/image-header-desktop.jpg" alt="picture of women at a work meeting">
-      </picture>
+        <img  srcset="images/image-header-mobile.jpg 654w,
+                     images/image-header-desktop.jpg 540w" 
+              sizes="(max-width: 479px) 654px,
+                     (min-width: 480px) 540px"
+              src="images/image-header-desktop.jpg 540w" alt="picture of women at a work meeting" class="header__picture">
     </header>
 
     <main class="cardcontent">
@@ -29,8 +30,8 @@
 
     <footer class="stats">
       <h2 class="stats__element">10k+ <span class="stats__element--heading">companies</span></h2>
-      <h2 class="stats__element">10k+ <span class="stats__element--heading">314 templates</h2>
-      <h2 class="stats__element">10k+ <span class="stats__element--heading">12m+ queries</h2>
+      <h2 class="stats__element">10k+ <span class="stats__element--heading">314 templates</span></h2>
+      <h2 class="stats__element">10k+ <span class="stats__element--heading">12m+ queries</span></h2>
     </footer>
   </div>
 
