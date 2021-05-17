@@ -1,23 +1,24 @@
+$color-body_background: #090b1a;
+$color-card_background: #1b1938;
+$color-image_tint: #aa5cdb;
+$color-maintitle_statselements: white;
+$color-paragraph: rgba(255, 255, 255, .75);
+$color-stats_headings:rgba(255, 255, 255, .6);
+
 :root {
   font-size: 15px;
   font-family: 'Inter', Arial, sans-serif;
-  color: white;
+  color: $color-maintitle_statselements;
   -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 body {
-  background-color: #090b1a;
+  background-color: $color-body_background;
   height: 100vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .container {
@@ -25,17 +26,16 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-direction: row;
-      flex-direction: row;
+  flex-direction: row;
   gap: 4vh;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  background-color: #1b1938;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: $color-card_background;
   border-radius: .8rem;
   padding-bottom: 4vh;
 }
@@ -44,7 +44,7 @@ body {
   width: 100%;
   height: 100%;
   -webkit-filter: contrast(60%);
-  filter: contrast(60%);
+          filter: contrast(60%);
   border-radius: .8rem .8rem 0 0;
 }
 
@@ -61,7 +61,7 @@ body {
   height: 100%;
   width: 100%;
   content: '';
-  background: #aa5cdb;
+  background: $color-image_tint;
   mix-blend-mode: multiply;
   border-radius: .8rem .8rem 0 0;
 }
@@ -71,13 +71,8 @@ body {
 }
 
 .cardcontent {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   gap: 1.8vh;
 }
 
@@ -89,45 +84,30 @@ body {
 }
 
 .cardcontent__title--important {
-  color: #aa5cdb;
+  color: $color-image_tint;
 }
 
 .cardcontent__details {
   text-align: center;
-  color: rgba(255, 255, 255, 0.75);
+  color: $color-paragraph;
   line-height: 1.8rem;
 }
 
 .textcontainer {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   gap: 4vh;
 }
 
 .stats {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   gap: 3vh;
 }
 
 .stats__element {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   gap: 1.2vh;
   text-align: center;
   font-weight: bold;
@@ -139,8 +119,12 @@ body {
   font-weight: normal;
   text-transform: uppercase;
   font-size: .8rem;
-  color: rgba(255, 255, 255, 0.6);
+  color: $color-stats_headings;
 }
+
+
+
+// Medium size mobile devices
 
 @media screen and (max-height: 740px) and (orientation: portrait) {
   :root {
@@ -148,11 +132,15 @@ body {
   }
 }
 
+// Small size mobile devices
+
 @media screen and (max-height: 570px) and (orientation: portrait) {
   :root {
     font-size: 12px;
   }
 }
+
+// High size tablets portrait orientation
 
 @media screen and (min-width: 765px) and (orientation: portrait) {
   :root {
@@ -160,75 +148,81 @@ body {
   }
 }
 
+// Medium size tablets portrait orientation
+
 @media screen and (min-width: 600px) and (orientation: portrait) {
   :root {
     font-size: 16px;
   }
 }
 
+// Desktop computers
+
 @media screen and (min-width: 960px) and (orientation: landscape) {
   .container {
     width: auto;
-    margin: 0 11vw;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: reverse;
-        -ms-flex-direction: row-reverse;
-            flex-direction: row-reverse;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    margin: 0 11vw ;
+    flex-direction: row-reverse;
+    align-items: center;
     gap: 4rem;
     padding: 0;
   }
+
   .picturecontainer {
     height: 100%;
     width: 100%;
   }
+
   .picture, .picturecontainer::after {
     border-radius: 0 .8rem .8rem 0;
   }
+
   .textcontainer {
     padding-left: 5rem;
     width: 57rem;
   }
+
   .cardcontent__title, .cardcontent__details, .stats__element {
     text-align: left;
   }
+
   .cardcontent__details, .stats {
     width: 90%;
   }
+
   .cardcontent__title {
     font-size: 2.5rem;
     line-height: 3rem;
   }
+
   .stats {
     padding-top: 5vh;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    flex-direction: row;
+    justify-content: space-between;
   }
 }
+
+// Tablets landscape orientation
 
 @media screen and (min-width: 960px) and (max-width: 1214px) and (orientation: landscape) {
   :root {
     font-size: 15px;
   }
+
   .container {
     margin: 0;
     gap: 8vh;
   }
+
   .textcontainer {
     width: auto;
   }
 }
+
+// High size desktop screens
 
 @media screen and (min-width: 1600px) and (orientation: landscape) {
   :root {
     font-size: 20px;
   }
 }
-/*# sourceMappingURL=style.css.map */
